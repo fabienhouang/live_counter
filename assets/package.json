@@ -1,8 +1,9 @@
 {
+  "name": "live_counter",
+  "scripts": {
+    "deploy": "mix assets.deploy"
+  },
   "dependencies": {
     "jspdf": "^3.0.1"
-  },
-  "scripts": {
-    "deploy": "esbuild js/app.js --bundle --target=es2017 --outdir=../priv/static/assets && mix phx.digest"
   }
 }
