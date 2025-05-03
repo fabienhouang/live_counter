@@ -1,0 +1,24 @@
+<div class="flex w-full h-screen">
+  <!-- Left: Markdown Input -->
+  <div class="w-1/2 p-4 border-r">
+    <h2 class="font-bold mb-2">Markdown Input</h2>
+    <form phx-change="update_markdown">
+      <textarea
+        name="markdown"
+        class="w-full h-full p-2 border rounded"
+        phx-debounce="200"><%= @markdown %></textarea>
+    </form>
+  </div>
+
+  <!-- Right: Rendered Output -->
+  <div class="w-1/2 p-4">
+    <h2 class="font-bold mb-2">Rendered Output</h2>
+    <div id="rendered-content" class="border p-4 h-[85%] overflow-auto bg-white" phx-hook="MarkdownPreview">
+      <%= raw(@rendered) %>
+    </div>
+    <div class="mt-4 space-x-2">
+      <button id="copy-button" class="px-4 py-2 bg-blue-500 text-white rounded" phx-hook="CopyHook">Copy</button>
+      <button id="pdf-button" class="px-4 py-2 bg-green-500 text-white rounded" phx-hook="PdfHook">Export</button>
+    </div>
+  </div>
+</div>
