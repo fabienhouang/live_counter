@@ -3,7 +3,7 @@ services:
     name: live-counter
     env: elixir
     plan: free
-    buildCommand: ./build.sh
+    buildCommand: mix deps.get && mix assets.deploy
     startCommand: MIX_ENV=prod mix phx.server
     rootDirectory: .
     envVars:
