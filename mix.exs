@@ -9,12 +9,12 @@ defmodule LiveCounter.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
-    ]
-    releases: [
-      live_counter: [
-        include_executables_for: [:unix],
-        steps: [:assemble, :tar]
+      deps: deps(),
+      releases: [
+        live_counter: [
+          include_executables_for: [:unix],
+          steps: [:assemble, :tar]
+        ]
       ]
     ]
   end
