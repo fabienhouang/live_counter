@@ -5,6 +5,7 @@ services:
     plan: free
     buildCommand: ./build.sh
     startCommand: MIX_ENV=prod mix phx.server
+    rootDirectory: .
     envVars:
       - key: MIX_ENV
         value: prod
