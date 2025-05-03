@@ -3,6 +3,6 @@
     "jspdf": "^3.0.1"
   },
   "scripts": {
-    "deploy": "mix assets.deploy"
+    "deploy": "esbuild js/app.js --bundle --target=es2017 --outdir=../priv/static/assets && mix phx.digest"
   }
 }
