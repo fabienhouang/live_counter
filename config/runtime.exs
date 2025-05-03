@@ -41,6 +41,7 @@ if config_env() == :prod do
   config :live_counter, LiveCounterWeb.Endpoint,
     server: true,
     url: [host: System.get_env("RENDER_EXTERNAL_HOSTNAME") || "localhost", port: 80],
+    http: [ip: {0, 0, 0, 0}, port: port],
     secret_key_base: System.fetch_env!("SECRET_KEY_BASE")
 
   # ## SSL Support
