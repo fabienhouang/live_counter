@@ -39,13 +39,24 @@ Hooks.CopyHook = {
 Hooks.PdfHook = {
   mounted() {
     this.el.addEventListener("click", () => {
-      const doc = new jsPDF()
-      const content = document.getElementById("rendered-content").innerText
-      doc.text(content, 10, 10)
-      doc.save("markdown_output.pdf")
-    })
+      const content = document.getElementById("rendered-content");
+
+      const doc = new jsPDF("p", "pt", "a4");
+
+      doc.html(content, {
+        callback: function (pdf) {
+          pdf.save("export.pdf");
+        },
+        x: 10,
+        y: 10,
+        html2canvas: {
+          scale: 0.8, // Adjust scale if content is too large
+        },
+        autoPaging: 'text',
+      });
+    });
   }
-}
+};
 
 Hooks.MarkdownPreview = {
   mounted() { /* no-op */ },
