@@ -1,7 +1,7 @@
 {
   "name": "live_counter",
   "scripts": {
-    "deploy": "mix assets.deploy"
+    "deploy": "cd .. && mix assets.deploy"
   },
   "dependencies": {
     "jspdf": "^3.0.1"
